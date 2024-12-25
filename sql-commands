@@ -1,0 +1,92 @@
+CREATE TABLE admin6 (
+uname VARCHAR(40) PRIMARY KEY,
+name VARCHAR(40),
+pword VARCHAR(50),
+mail_id VARCHAR(60),
+phone_no VARCHAR(12)
+
+);
+
+CREATE TABLE train6 (
+tr_no INT PRIMARY KEY,
+tr_name VARCHAR(70),
+from_stn VARCHAR(20),
+to_stn VARCHAR(20),
+available INT,
+fare INT
+
+);
+
+CREATE TABLE ticket2 (
+pnr VARCHAR(10) PRIMARY KEY,
+tr_number INT NOT NULL,
+tr_name VARCHAR(100) NOT NULL,
+from_stn VARCHAR(100) NOT NULL,
+to_stn VARCHAR(100) NOT NULL,
+seat INT NOT NULL
+
+);
+
+CREATE TABLE register (
+uname VARCHAR(40) PRIMARY KEY,
+pword VARCHAR(50),
+fname VARCHAR(40),
+lname VARCHAR(40),
+addr VARCHAR(100),
+phno VARCHAR(12),
+mailid VARCHAR(60)
+
+);
+
+CREATE TABLE ticket3 (
+    pnr VARCHAR(10) PRIMARY KEY,
+    tr_number INT NOT NULL,
+    tr_name VARCHAR(100) NOT NULL,
+    from_stn VARCHAR(100) NOT NULL,
+    to_stn VARCHAR(100) NOT NULL,
+    seat INT NOT NULL,
+    uname VARCHAR(40),
+    FOREIGN KEY (uname) REFERENCES register(uname)
+);
+
+INSERT INTO train6 (tr_no, tr_name, from_stn, to_stn, available, fare)
+VALUES (101, 'Express Line', 'Mumbai', 'Delhi', 100, 1500);
+
+INSERT INTO train6 (tr_no, tr_name, from_stn, to_stn, available, fare)
+VALUES (102, 'Rajdhani Express', 'Mumbai', 'Bangalore', 200, 2000);
+
+INSERT INTO train6 (tr_no, tr_name, from_stn, to_stn, available, fare)
+VALUES (103, 'Duronto Express', 'Pune', 'Chennai', 150, 1800);
+
+INSERT INTO train6 (tr_no, tr_name, from_stn, to_stn, available, fare)
+VALUES (104, 'Shatabdi Express', 'Hyderabad', 'Kolkata', 120, 2500);
+
+INSERT INTO train6 (tr_no, tr_name, from_stn, to_stn, available, fare)
+VALUES (105, 'Jan Shatabdi', 'Jaipur', 'Ahmedabad', 180, 1200);
+
+
+INSERT INTO ticket3 (pnr, tr_number, tr_name, from_stn, to_stn, seat, uname)
+VALUES ('PNR001', 101, 'Express Line', 'Mumbai', 'Delhi', 2, 'russellpereira05');
+
+INSERT INTO ticket3 (pnr, tr_number, tr_name, from_stn, to_stn, seat, uname)
+VALUES ('PNR002', 102, 'Rajdhani Express', 'Mumbai', 'Bangalore', 1, 'russellpereira05');
+
+INSERT INTO ticket3 (pnr, tr_number, tr_name, from_stn, to_stn, seat, uname)
+VALUES ('PNR003', 103, 'Duronto Express', 'Pune', 'Chennai', 3, 'russellpereira05');
+
+INSERT INTO ticket3 (pnr, tr_number, tr_name, from_stn, to_stn, seat, uname)
+VALUES ('PNR004', 104, 'Shatabdi Express', 'Hyderabad', 'Kolkata', 2, 'russellpereira05');
+
+INSERT INTO ticket3 (pnr, tr_number, tr_name, from_stn, to_stn, seat, uname)
+VALUES ('PNR005', 105, 'Jan Shatabdi', 'Jaipur', 'Ahmedabad', 1, 'russellpereira05');
+
+
+
+
+INSERT INTO ticket3 (pnr, tr_number, tr_name, from_stn, to_stn, seat, uname)
+VALUES ('PNR006', 105, 'Jan Shatabdi', 'Jaipur', 'Ahmedabad', 1, 'aaron05');
+
+
+INSERT INTO admin6 VALUES ('admin', 'admin', 'admin', 'admin@tiu.edu', '8909878908');
+
+select * from TICKET3;
